@@ -1,0 +1,16 @@
+@media screen and (min-width: 700px){
+
+    .navbar {
+        right: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+
+
+
+
+
+
+}

@@ -1,0 +1,65 @@
+.flex { display: flex }
+.flex-column { flex-direction: column }
+.align-center { align-content: center }
+.justify-center { justify-content: center }
+.justify-around { justify-content: space-around}
+.self-center { align-self: center }
+.absolute { position: absolute; }
+.relative { position: relative; }
+
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: orange;
+    height: 6rem;
+}
+
+.linksHidden {
+    right: 300px;
+}
+
+.linksVisible {
+    border: 2px black solid;
+    width: 30%;
+    background: white;
+}
+
+.material-icons {
+    background: white;
+}
+
+.material-icons:hover {
+    background: black;
+}
+
+.themeButton {
+    height: 2rem;
+    width: 6rem;
+    font-weight: 600;
+}
+
+nav {
+    background: gray;
+    height: 3rem;
+}
+
+a {
+    align-self: center;
+    text-decoration: none;
+}
+
+img {
+    height: 20rem;
+    width: 15rem;
+    padding-top: 2rem;
+}
+
+main {
+    height: 100vh;
+}
