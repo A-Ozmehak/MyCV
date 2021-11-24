@@ -13,11 +13,18 @@
 body {
     margin: 0;
     padding: 0;
+    color: black;
+    background: white;
 }
 
 header {
-    background: orange;
+
     height: 6rem;
+}
+
+.dark-mode {
+    background: black;
+    color: white;
 }
 
 .linksHidden {
@@ -35,7 +42,7 @@ header {
 }
 
 .material-icons:hover {
-    background: black;
+    background: darkslategray;
 }
 
 .themeButton {
@@ -45,13 +52,14 @@ header {
 }
 
 nav {
-    background: gray;
-    height: 3rem;
+    border: 2px solid black;
+    height: 4rem;
 }
 
 a {
     align-self: center;
     text-decoration: none;
+    color: black;
 }
 
 img {
