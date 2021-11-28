@@ -1,25 +1,45 @@
-.flex { display: flex }
-.flex-column { flex-direction: column }
-.align-center { align-content: center }
-.justify-center { justify-content: center }
-.justify-around { justify-content: space-around}
-.self-center { align-self: center }
+:root {
+    --bgColor: white;
+    --txtColor: black;
+    --navBarColor: #4d5259;
+}
+
+/*reusable classes*/
+.flex { display: flex; }
+.grid { display: grid; }
+.flex-column { flex-direction: column; }
+.align-center { align-content: center; }
+.justify-center { justify-content: center; }
+.justify-around { justify-content: space-around; }
+.self-center { align-self: center; }
 .absolute { position: absolute; }
 .relative { position: relative; }
-
-
-
 
 body {
     margin: 0;
     padding: 0;
-    color: black;
-    background: white;
+    height: 100vh;
+    color: var(--txtColor);
+    background: var(--bgColor);
+}
+
+.grid-container {
+    grid-template-columns: 25% 75%;
+    grid-template-rows: auto;
+    grid-template-areas: "aside main";
 }
 
 header {
-
     height: 6rem;
+    color: var(--txtColor);
+    border: 2px solid black;
+
+}
+
+.head-line {
+    font-size: 3rem;
+    color: var(--txtColor);
+    text-decoration: none;
 }
 
 .dark-mode {
@@ -27,47 +47,63 @@ header {
     color: white;
 }
 
-.linksHidden {
-    right: 300px;
-}
-
-.linksVisible {
-    border: 2px black solid;
-    width: 30%;
-    background: white;
-}
-
-.material-icons {
-    background: white;
-}
-
-.material-icons:hover {
-    background: darkslategray;
-}
-
 .themeButton {
     height: 2rem;
     width: 6rem;
     font-weight: 600;
-}
 
-nav {
-    border: 2px solid black;
-    height: 4rem;
-}
-
-a {
-    align-self: center;
-    text-decoration: none;
-    color: black;
 }
 
 img {
-    height: 20rem;
-    width: 15rem;
-    padding-top: 2rem;
+    height: 12rem;
+    width: 10rem;
 }
 
 main {
-    height: 100vh;
+    grid-area: main;
+}
+
+main {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    grid-template-areas: "workexperience education portfolio";
+}
+
+#workexperience {
+    grid-area: workexperience;
+    border: 1px solid black;
+    padding-left: 1rem;
+}
+
+#education {
+    grid-area: education;
+    border: 1px solid black;
+    padding-left: 1rem;
+}
+
+#portfolio {
+    grid-area: portfolio;
+    border: 1px solid black;
+    padding-left: 1rem;
+}
+
+aside {
+    background: #4d5259;
+    grid-area: aside;
+}
+
+ul, .contactMe, .aboutMe {
+    font-weight: 600;
+}
+
+img, h2, .contactInfo, a, ul, .contactMe, .aboutMe, .infoAboutMe {
+    margin-left: 2rem;
+}
+
+.linkedInAccount {
+    color: black;
+}
+
+.linkedInAccount:hover {
+    color: red;
 }
