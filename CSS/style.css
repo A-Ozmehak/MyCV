@@ -6,14 +6,13 @@
 
 /*reusable classes*/
 .flex { display: flex; }
-.grid { display: grid; }
 .flex-column { flex-direction: column; }
 .align-center { align-content: center; }
-.justify-center { justify-content: center; }
+.justify-center {justify-content: center; }
 .justify-around { justify-content: space-around; }
 .self-center { align-self: center; }
-.absolute { position: absolute; }
-.relative { position: relative; }
+.grid { display: grid; }
+
 
 body {
     margin: 0;
@@ -23,23 +22,15 @@ body {
     background: var(--bgColor);
 }
 
-.grid-container {
-    grid-template-columns: 25% 75%;
-    grid-template-rows: auto;
-    grid-template-areas: "aside main";
-}
-
 header {
     height: 6rem;
     color: var(--txtColor);
     border: 2px solid black;
-
 }
 
 .head-line {
     font-size: 3rem;
     color: var(--txtColor);
-    text-decoration: none;
 }
 
 .dark-mode {
@@ -51,8 +42,18 @@ header {
     height: 2rem;
     width: 6rem;
     font-weight: 600;
-
 }
+
+.contactMe {
+    font-weight: 600;
+}
+
+#uk, #sv {
+    height: 2rem;
+    width: 3rem;
+    margin: 0;
+}
+
 
 img {
     height: 12rem;
@@ -60,16 +61,20 @@ img {
 }
 
 main {
-    grid-area: main;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "information"
+                         "workexperience"
+                         "education"
+                         "portfolio";
 }
 
-main {
-    grid-template-columns: 50% 50%;
-    grid-template-rows: auto;
-    grid-template-areas: "workexperience education portfolio";
+#information {
+    grid-area: information;
+    background: #4d5259;
 }
 
-#workexperience {
+#work-experience {
     grid-area: workexperience;
     border: 1px solid black;
     padding-left: 1rem;
@@ -87,16 +92,12 @@ main {
     padding-left: 1rem;
 }
 
-aside {
-    background: #4d5259;
-    grid-area: aside;
-}
-
-ul, .contactMe, .aboutMe {
+ul {
     font-weight: 600;
 }
 
-img, h2, .contactInfo, a, ul, .contactMe, .aboutMe, .infoAboutMe {
+
+img, h2, ul, p, a {
     margin-left: 2rem;
 }
 

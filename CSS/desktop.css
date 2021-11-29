@@ -1,27 +1,27 @@
-@media screen and (min-width: 700px){
+@media screen and (min-width: 700px) {
 
-    /*.navbar {*/
-    /*    right: 0;*/
-    /*    display: flex;*/
-    /*    flex-direction: row;*/
-    /*    justify-content: space-around;*/
-    /*}*/
+    main {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: "information workexperience education"
+                             "portfolio";
+    }
 
-    /*.material-icons {*/
-    /*    !*display: none;*!*/
-    /*}*/
+    #information {
+        grid-area: information;
+    }
 
-    /*#links {*/
-    /*    flex-direction: row;*/
-    /*    justify-content: space-around;*/
-    /*    display: flex;*/
-    /*}*/
+    #work-experience {
+        grid-area: workexperience;
+    }
 
-    /*#workexperience, #education, #portfolio {*/
-    /*    margin: 1.3rem 0 0 0;*/
-    /*}*/
+    #education {
+        grid-area: education;
+    }
 
-
+    #portfolio {
+        grid-area: portfolio;
+    }
 
 
 }
