@@ -1,26 +1,20 @@
 @media screen and (min-width: 700px) {
 
     main {
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto;
-        grid-template-areas: "information workexperience education"
-                             "portfolio";
+        display: flex;
+        flex-direction: row;
+
     }
 
-    #information {
-        grid-area: information;
+    .navbar {
+        display: flex;
+        flex-direction: column;
     }
 
-    #work-experience {
-        grid-area: workexperience;
-    }
-
-    #education {
-        grid-area: education;
-    }
-
-    #portfolio {
-        grid-area: portfolio;
+    #work-experience, #education, #portfolio {
+        font-size: 2rem;
+        display: flex;
+        flex-direction: column;
     }
 
 

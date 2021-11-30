@@ -1,7 +1,8 @@
 :root {
     --bgColor: white;
     --txtColor: black;
-    --navBarColor: #4d5259;
+    --navbarColor: black;
+    --navbarTxt: white;
 }
 
 /*reusable classes*/
@@ -28,8 +29,28 @@ header {
     border: 2px solid black;
 }
 
+#work-experience, #education, #portfolio {
+    background: black;
+    border: 1px black solid;
+    margin: 1rem;
+    font-size: 1rem;
+    text-decoration: none;
+    color: var(--navbarColor);
+    background: var(--navbarTxt);
+}
+
+main {
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+
+}
+
 .head-line {
-    font-size: 3rem;
+    font-size: 4rem;
     color: var(--txtColor);
 }
 
@@ -42,6 +63,7 @@ header {
     height: 2rem;
     width: 6rem;
     font-weight: 600;
+    font-size: 1rem;
 }
 
 .contactMe {
@@ -51,51 +73,38 @@ header {
 #uk, #sv {
     height: 2rem;
     width: 3rem;
-    margin: 0;
+    margin: 2rem 0 0 0;
+
 }
 
-
-img {
-    height: 12rem;
-    width: 10rem;
-}
-
-main {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: "information"
-                         "workexperience"
-                         "education"
-                         "portfolio";
+.imageOfMe {
+    height: 15rem;
+    width: 12rem;
 }
 
 #information {
-    grid-area: information;
     background: #4d5259;
+    display: flex;
+    flex-direction: column;
+
 }
 
-#work-experience {
-    grid-area: workexperience;
-    border: 1px solid black;
-    padding-left: 1rem;
+#work-experience:hover {
+    color: red;
+
 }
 
-#education {
-    grid-area: education;
-    border: 1px solid black;
-    padding-left: 1rem;
+#education:hover {
+    color: red;
 }
 
-#portfolio {
-    grid-area: portfolio;
-    border: 1px solid black;
-    padding-left: 1rem;
+#portfolio:hover {
+    color: red;
 }
 
 ul {
     font-weight: 600;
 }
-
 
 img, h2, ul, p, a {
     margin-left: 2rem;

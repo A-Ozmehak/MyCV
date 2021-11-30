@@ -1,15 +1,16 @@
 const enContent = {
-    informationAboutMe: `<img src="./img/jag.jpg" alt="picture of me">
-            <h2>Anna Özmehak</h2>
 
-            <p class="aboutMe">About me</p>
-            <p class="infoAboutMe">32 year old from Skåne that now lives in Göteborg with my husband. </p>
-
-            <p class="contactMe">Contact me</p>
-            <p class="contactInfo">Gustaf Dalénsgatan 24<br>Göteborg<br>070-29 23 166<br>anna.ozmehak@gmail.com</p>
-            <a class="linkedInAccount" href="https://www.linkedin.com/in/anna-%C3%B6zmehak-789423226/">LinkedIn account</a>
-
-            <ul>Skills
+    myName: `Anna Özmehak`,
+    aboutMe: `About Me`,
+    infoAboutMe: `32 years old from Skåne that now lives in Göteborg with my husband`,
+    contactMe: `Contact Me 
+    Gustaf Dalénsgatan 24
+    Göteborg
+    070-29 23 166
+    anna.ozmehak@gmail.com
+<!--     <img class="pictureOfMe" src="./img/jag.jpg" alt="picture of me">-->
+     <a class="linkedInAccount" href="https://www.linkedin.com/in/anna-%C3%B6zmehak-789423226/">LinkedIn account</a>
+   <ul>Skills
                 <li>Energetic</li>
                 <li>Driven</li>
                 <li>Organised</li>
@@ -22,9 +23,12 @@ const enContent = {
                 <li>English - Fluently</li>
             </ul>`,
 
-    workexperienceHeadline: `Workexperience`,
+
+
+    // workexperienceHeadline: `Workexperience`,
 
     lastJobContent: `Public Dental Care Sannegården, Göteborg
+    
     2018-10-01 - Now (on leave right now)
     
     Assisted the dentists with all kinds of treatments. 
@@ -44,14 +48,14 @@ const enContent = {
 
      Helped the elderly with daily needs.`,
 
-    educationHeadline: 'Education',
+    // educationHeadline: 'Education',
     lastestEducation: `Front End Developer, Now - 2023`,
     preciouslyEducation: `Dentalassistent, Helsingborg Higher Vocational Education
      2014-09-01 - 2015-12-18`,
     earliestEducation: `College Preparatory, Eslöv
     2009-08-01 - 2012-06-01`,
 
-    portfolioHeadline: `Portfolio`,
+    // portfolioHeadline: `Portfolio`,
     portfolio: `https://github.com/A-Ozmehak`
 
 
