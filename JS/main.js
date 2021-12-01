@@ -5,17 +5,29 @@ window.addEventListener('load', main);
  */
 function main() {
     addEventListeners();
-    startPageWithInformation();
+    if (localStorage.getItem('swe') !== null ){
+    startPageWithInformation(sweContent)}
 }
 
+/**
+ * All the addEventListeners on the page
+ */
 function addEventListeners() {
     document.querySelector('button').addEventListener('click', colorTheme);
     document.querySelector('#work-experience').addEventListener('click', enterWorkExperiencePage);
     document.querySelector('#education').addEventListener('click', enterEducationPage);
     document.querySelector('#portfolio').addEventListener('click', enterPortfolioPage);
-    //document.querySelector('#uk').addEventListener('click',)
-    //document.querySelector('#sv')
+    document.querySelector('#uk').addEventListener('click', () => somethingLocalStorageSomething('eng'))
+    document.querySelector('#swe').addEventListener('click', () => somethingLocalStorageSomething('swe'))
 }
+
+function somethingLocalStorageSomething(lang) {
+    localStorage.clear()
+    localStorage.setItem(lang, 'true');
+
+}
+
+
 
 function colorTheme() {
     let rootOfThePage = document.documentElement;
@@ -23,67 +35,87 @@ function colorTheme() {
     rootOfThePage.style.setProperty('--txtColor', 'white');
 }
 
-
-
-
 /**
  * Function that creates an element into an specific div and with a text content
- * @param whatPage What div to place the element
+ * @param whatDiv What div to place the element
  * @param whatElement What element to create
  * @param whatContent What content the element should contain
  * @returns {HTMLElement}
  */
-function createHTMLElement(whatPage, whatElement, whatContent) {
+function createHTMLElement(whatDiv, whatElement, whatContent) {
     let element = document.createElement(whatElement);
-
     element.innerHTML = whatContent;
-    document.querySelector(whatPage).append(element)
-
+    document.querySelector(whatDiv).append(element)
     return element;
-
 }
 
-function startPageWithInformation() {
-     // createHTMLElement('#information', 'div', enContent.informationAboutMe);
-     createHTMLElement('#information', 'h2', enContent.myName);
+/**
+ * Create element on the start page
+ */
+function startPageWithInformation(contento) {
+
+     createHTMLElement('#information', 'h2', contento.myName);
     let imageOfMe = createHTMLElement('#information', 'img');
     imageOfMe.src = './img/jag.jpg';
     document.querySelector('#information').appendChild(imageOfMe);
     imageOfMe.classList.add('imageOfMe');
-     let informationAboutMe = createHTMLElement('#information', 'p', enContent.aboutMe);
-     informationAboutMe.classList.add('aboutMe');
-     createHTMLElement('#information', 'p', enContent.infoAboutMe);
-     createHTMLElement('#information', 'p', enContent.contactMe);
 
+    createHTMLElement('#information', 'h3', 'About Me');
+
+    for (let i = 0; i < enContent.aboutMe.length; i++) {
+        createHTMLElement('#information', 'p', enContent.aboutMe[i]);
+    }
+    let linkToMyLinkedAccount = createHTMLElement('#information', 'a', enContent.linkLinkedIn);
+    linkToMyLinkedAccount.setAttribute('href', 'https://www.linkedin.com/in/anna-%C3%B6zmehak-789423226/');
+    linkToMyLinkedAccount.setAttribute('target', '_blank')
+
+     let skillsUl = createHTMLElement('#information', 'ul', 'Skills');
+     skillsUl.id = 'listOfMySkills';
+     for (let i = 0; i < enContent.listOfSkills.length; i++) {
+         createHTMLElement('#listOfMySkills', 'li', enContent.listOfSkills[i]);
+     }
+     let myLanguages = createHTMLElement('#information', 'ul', 'Languages');
+     myLanguages.id = 'listOfMyLanguages';
+     for (let i = 0; i < enContent.listOfLanguages.length; i++) {
+         createHTMLElement('#listOfMyLanguages', 'li', enContent.listOfLanguages[i]);
+     }
 }
 
+/**
+ * Create element on the work experience page
+ */
 function enterWorkExperiencePage() {
-    document.querySelector('#information').innerHTML = '';
-    document.querySelector('#portfolio').innerHTML = '';
-    document.querySelector('#education').innerHTML = '';
+    document.querySelector('main').innerHTML = '';
 
-    // createHTMLElement('#work-experience', 'h2', enContent.workexperienceHeadline);
-    createHTMLElement('#work-experience', 'p', enContent.lastJobContent);
-    createHTMLElement('#work-experience', 'p', enContent.previouslyJob);
-    createHTMLElement('#work-experience', 'p', enContent.earliestJob);
+    createHTMLElement('main', 'h2', enContent.workExperienceHeadline);
+
+    for (let i = 0; i < enContent.jobContent.length; i++) {
+        createHTMLElement('main', 'p', enContent.jobContent[i]);
+    }
 }
+
+/**
+ * create element on the education page
+ */
 function enterEducationPage() {
-    document.querySelector('#information').innerHTML = '';
-    document.querySelector('#work-experience').innerHTML = '';
-    document.querySelector('#portfolio').innerHTML = '';
+    document.querySelector('main').innerHTML = '';
 
-    // createHTMLElement('#education', 'h2', enContent.educationHeadline);
-    createHTMLElement('#education', 'p', enContent.lastestEducation);
-    createHTMLElement('#education', 'p', enContent.preciouslyEducation);
-    createHTMLElement('#education', 'p', enContent.earliestEducation);
+    createHTMLElement('main', 'h2', enContent.educationHeadline);
+
+    for (let i = 0; i < enContent.myEducations.length; i++) {
+        createHTMLElement('main', 'p', enContent.myEducations[i]);
+    }
 }
 
+/**
+ * Create element on the portfolio page
+ */
 function enterPortfolioPage() {
-    document.querySelector('#information').innerHTML = '';
-    document.querySelector('#work-experience').innerHTML = '';
-    document.querySelector('#education').innerHTML = '';
+    document.querySelector('main').innerHTML = '';
+    createHTMLElement('main', 'h2', enContent.portfolioHeadline);
+    createHTMLElement('main', 'p', enContent.portfolio);
 
-    // createHTMLElement('#portfolio', 'h2', enContent.portfolioHeadline);
-    createHTMLElement('#portfolio', 'p', enContent.portfolio);
-
+    let linkToGitHub = createHTMLElement('main', 'a', enContent.portfolio);
+    linkToGitHub.setAttribute('href', 'https://github.com/A-Ozmehak');
+    linkToGitHub.setAttribute('target', '_blank')
 }

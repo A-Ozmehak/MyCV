@@ -12,8 +12,6 @@
 .justify-center {justify-content: center; }
 .justify-around { justify-content: space-around; }
 .self-center { align-self: center; }
-.grid { display: grid; }
-
 
 body {
     margin: 0;
@@ -32,6 +30,7 @@ header {
 #work-experience, #education, #portfolio {
     background: black;
     border: 1px black solid;
+    border-radius: 1rem;
     margin: 1rem;
     font-size: 1rem;
     text-decoration: none;
@@ -40,18 +39,13 @@ header {
 }
 
 main {
-    flex-direction: column;
-}
-
-.navbar {
-    display: flex;
-    flex-direction: row;
-
+    width: 80%;
 }
 
 .head-line {
-    font-size: 4rem;
+    font-size: 2rem;
     color: var(--txtColor);
+    text-decoration: none;
 }
 
 .dark-mode {
@@ -66,15 +60,10 @@ main {
     font-size: 1rem;
 }
 
-.contactMe {
-    font-weight: 600;
-}
-
 #uk, #sv {
     height: 2rem;
     width: 3rem;
     margin: 2rem 0 0 0;
-
 }
 
 .imageOfMe {
@@ -86,12 +75,10 @@ main {
     background: #4d5259;
     display: flex;
     flex-direction: column;
-
 }
 
 #work-experience:hover {
     color: red;
-
 }
 
 #education:hover {
@@ -106,7 +93,7 @@ ul {
     font-weight: 600;
 }
 
-img, h2, ul, p, a {
+img, h2, ul, p, a, h3 {
     margin-left: 2rem;
 }
 
