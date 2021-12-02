@@ -38,8 +38,12 @@ const enContent = {
 }
 
 const sweContent = {
+
+    aboutHeader: 'Om Mig',
+    skillHeader: 'Egenskaper',
+    langHeader: 'Språk',
     listOfSkills: ['Energetic', 'Driven', 'Motiverad', 'Organiserad', 'Team player', 'HLR - instruktör'],
-    listOfLanguages: ['Swedish - Mother tongue', 'English - Fluent'],
+    listOfLanguages: ['Svenska - Modersmål', 'Engelska - Flytande'],
 
     myName: `Anna Özmehak`,
     aboutMe: [`32 år gammal från Skåne som nu bor i Göteborg med min man.
@@ -52,7 +56,7 @@ const sweContent = {
 
     linkLinkedIn: `LinkedIn Konto`,
 
-    workexperienceHeadline: `Jobberfarenhet`,
+    workExperienceHeadline: `Jobberfarenhet`,
 
     jobContent: [`Folktandvården Sannegården, Göteborg
      2018-10-01 - Nu (är tjänstledig just nu)

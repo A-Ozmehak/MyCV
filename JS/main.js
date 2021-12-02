@@ -4,32 +4,52 @@ window.addEventListener('load', main);
  * start of the page
  */
 function main() {
-    addEventListeners();
-    if (localStorage.getItem('swe') !== null ){
-    startPageWithInformation(sweContent)}
+    setDefault()
+    if (localStorage.getItem('swe') === 'true') {
+        startPageWithInformation(sweContent)
+        addEventListeners(sweContent)
+    } else if (localStorage.getItem('eng') === 'true') {
+        startPageWithInformation(enContent)
+        addEventListeners(enContent)
+    }
+
 }
 
 /**
  * All the addEventListeners on the page
  */
-function addEventListeners() {
+function addEventListeners(content) {
     document.querySelector('button').addEventListener('click', colorTheme);
-    document.querySelector('#work-experience').addEventListener('click', enterWorkExperiencePage);
-    document.querySelector('#education').addEventListener('click', enterEducationPage);
-    document.querySelector('#portfolio').addEventListener('click', enterPortfolioPage);
+    document.querySelector('#work-experience').addEventListener('click', () => enterWorkExperiencePage(content));
+    document.querySelector('#education').addEventListener('click', () => enterEducationPage(content));
+    document.querySelector('#portfolio').addEventListener('click', () => enterPortfolioPage(content));
     document.querySelector('#uk').addEventListener('click', () => somethingLocalStorageSomething('eng'))
     document.querySelector('#swe').addEventListener('click', () => somethingLocalStorageSomething('swe'))
 }
-
+function setDefault(){
+    if (localStorage.getItem('swe') === null || localStorage.getItem('eng') === null){
+        localStorage.setItem('swe', 'true')
+    }
+}
 function somethingLocalStorageSomething(lang) {
-    localStorage.clear()
-    localStorage.setItem(lang, 'true');
 
+    if (lang === 'eng') {
+        localStorage.setItem('eng', 'true')
+        localStorage.setItem('swe', 'false')
+
+    }
+    else if (lang === 'swe') {
+        localStorage.setItem('swe', 'true')
+        localStorage.setItem('eng', 'false')
+
+    }
+    document.querySelector('#information').innerHTML = '';
+    main()
 }
 
 
-
 function colorTheme() {
+    localStorage.setItem('darkMode', 'true')
     let rootOfThePage = document.documentElement;
     rootOfThePage.style.setProperty('--bgColor', 'black');
     rootOfThePage.style.setProperty('--txtColor', 'white');
@@ -52,70 +72,70 @@ function createHTMLElement(whatDiv, whatElement, whatContent) {
 /**
  * Create element on the start page
  */
-function startPageWithInformation(contento) {
+function startPageWithInformation(content) {
 
-     createHTMLElement('#information', 'h2', contento.myName);
+    createHTMLElement('#information', 'h2', content.myName);
     let imageOfMe = createHTMLElement('#information', 'img');
     imageOfMe.src = './img/jag.jpg';
     document.querySelector('#information').appendChild(imageOfMe);
     imageOfMe.classList.add('imageOfMe');
 
-    createHTMLElement('#information', 'h3', 'About Me');
+    createHTMLElement('#information', 'h3', content.aboutHeader);
 
-    for (let i = 0; i < enContent.aboutMe.length; i++) {
-        createHTMLElement('#information', 'p', enContent.aboutMe[i]);
+    for (let i = 0; i < content.aboutMe.length; i++) {
+        createHTMLElement('#information', 'p', content.aboutMe[i]);
     }
-    let linkToMyLinkedAccount = createHTMLElement('#information', 'a', enContent.linkLinkedIn);
+    let linkToMyLinkedAccount = createHTMLElement('#information', 'a', content.linkLinkedIn);
     linkToMyLinkedAccount.setAttribute('href', 'https://www.linkedin.com/in/anna-%C3%B6zmehak-789423226/');
     linkToMyLinkedAccount.setAttribute('target', '_blank')
 
-     let skillsUl = createHTMLElement('#information', 'ul', 'Skills');
-     skillsUl.id = 'listOfMySkills';
-     for (let i = 0; i < enContent.listOfSkills.length; i++) {
-         createHTMLElement('#listOfMySkills', 'li', enContent.listOfSkills[i]);
-     }
-     let myLanguages = createHTMLElement('#information', 'ul', 'Languages');
-     myLanguages.id = 'listOfMyLanguages';
-     for (let i = 0; i < enContent.listOfLanguages.length; i++) {
-         createHTMLElement('#listOfMyLanguages', 'li', enContent.listOfLanguages[i]);
-     }
+    let skillsUl = createHTMLElement('#information', 'ul', content.skillHeader);
+    skillsUl.id = 'listOfMySkills';
+    for (let i = 0; i < content.listOfSkills.length; i++) {
+        createHTMLElement('#listOfMySkills', 'li', content.listOfSkills[i]);
+    }
+    let myLanguages = createHTMLElement('#information', 'ul', content.langHeader);
+    myLanguages.id = 'listOfMyLanguages';
+    for (let i = 0; i < content.listOfLanguages.length; i++) {
+        createHTMLElement('#listOfMyLanguages', 'li', content.listOfLanguages[i]);
+    }
 }
 
 /**
  * Create element on the work experience page
  */
-function enterWorkExperiencePage() {
+function enterWorkExperiencePage(content) {
     document.querySelector('main').innerHTML = '';
 
-    createHTMLElement('main', 'h2', enContent.workExperienceHeadline);
+    createHTMLElement('main', 'h2', content.workExperienceHeadline);
 
-    for (let i = 0; i < enContent.jobContent.length; i++) {
-        createHTMLElement('main', 'p', enContent.jobContent[i]);
+    for (let i = 0; i < content.jobContent.length; i++) {
+        createHTMLElement('main', 'p', content.jobContent[i]);
     }
 }
 
 /**
  * create element on the education page
  */
-function enterEducationPage() {
+function enterEducationPage(content) {
     document.querySelector('main').innerHTML = '';
 
-    createHTMLElement('main', 'h2', enContent.educationHeadline);
+    createHTMLElement('main', 'h2', content.educationHeadline);
 
-    for (let i = 0; i < enContent.myEducations.length; i++) {
-        createHTMLElement('main', 'p', enContent.myEducations[i]);
+    for (let i = 0; i < content.myEducations.length; i++) {
+        createHTMLElement('main', 'p', content.myEducations[i]);
     }
 }
 
 /**
  * Create element on the portfolio page
  */
-function enterPortfolioPage() {
+function enterPortfolioPage(content) {
     document.querySelector('main').innerHTML = '';
-    createHTMLElement('main', 'h2', enContent.portfolioHeadline);
-    createHTMLElement('main', 'p', enContent.portfolio);
+    createHTMLElement('main', 'h2', content.portfolioHeadline);
 
-    let linkToGitHub = createHTMLElement('main', 'a', enContent.portfolio);
+
+    let linkToGitHub = createHTMLElement('main', 'a', content.portfolio);
     linkToGitHub.setAttribute('href', 'https://github.com/A-Ozmehak');
     linkToGitHub.setAttribute('target', '_blank')
 }

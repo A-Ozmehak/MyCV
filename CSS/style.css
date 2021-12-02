@@ -48,10 +48,8 @@ main {
     text-decoration: none;
 }
 
-.dark-mode {
-    background: black;
-    color: white;
-}
+
+
 
 .themeButton {
     height: 2rem;
@@ -91,6 +89,13 @@ main {
 
 ul {
     font-weight: 600;
+    font-size: 2rem;
+}
+
+li {
+    font-size: 1rem;
+    font-weight: 400;
+
 }
 
 img, h2, ul, p, a, h3 {
