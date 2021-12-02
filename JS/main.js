@@ -10,11 +10,11 @@ function main() {
     if (localStorage.getItem('swe') === 'true') {
         startPageWithInformation(sweContent)
         addEventListeners(sweContent)
+
     } else if (localStorage.getItem('eng') === 'true') {
         startPageWithInformation(enContent)
         addEventListeners(enContent)
     }
-
 }
 
 /**
@@ -26,9 +26,12 @@ function addEventListeners(content) {
     document.querySelector('#work-experience').addEventListener('click', () => enterWorkExperiencePage(content));
     document.querySelector('#education').addEventListener('click', () => enterEducationPage(content));
     document.querySelector('#portfolio').addEventListener('click', () => enterPortfolioPage(content));
-    document.querySelector('#uk').addEventListener('click', () => somethingLocalStorageSomething('eng'))
-    document.querySelector('#swe').addEventListener('click', () => somethingLocalStorageSomething('swe'))
+    document.querySelector('#uk').addEventListener('click', () => somethingLocalStorageSomething('eng'),
+        changeButtonTextBetweenSwedishAndEnglish);
+    document.querySelector('#swe').addEventListener('click', () => somethingLocalStorageSomething('swe'),
+        changeButtonTextBetweenSwedishAndEnglish);
 }
+
 function setDefault(){
     if (localStorage.getItem('swe') === null || localStorage.getItem('eng') === null){
         localStorage.setItem('swe', 'true')
@@ -150,5 +153,45 @@ function enterPortfolioPage(content) {
 
     let linkToGitHub = createHTMLElement('main', 'a', content.portfolio);
     linkToGitHub.setAttribute('href', 'https://github.com/A-Ozmehak');
-    linkToGitHub.setAttribute('target', '_blank')
+    linkToGitHub.setAttribute('target', '_blank');
+    linkToGitHub.classList.add('gitHub');
+
+    let shoppingProject = createHTMLElement('main', 'img');
+    shoppingProject.src = './img/shoppingWebsiteProject.png';
+    document.querySelector('main').appendChild(shoppingProject);
+    shoppingProject.classList.add('shoppingWebsitePic');
+
+    let spotify = createHTMLElement('main', 'img');
+    spotify.src = './img/Spotify.png';
+    document.querySelector('main').appendChild(spotify);
+    spotify.classList.add('spotifyPic');
+
+    let redoneExistingWebsite = createHTMLElement('main', 'img');
+    redoneExistingWebsite.src = './img/RedoneAExistingWebsite.png';
+    document.querySelector('main').appendChild(redoneExistingWebsite);
+    redoneExistingWebsite.classList.add('makeOverPic');
+
+    let unexpectedGame = createHTMLElement('main', 'img');
+    unexpectedGame.src = './img/UnexpectedGame.png';
+    document.querySelector('main').appendChild(unexpectedGame);
+    unexpectedGame.classList.add('unexpectedPic');
+
+    let stardewValley = createHTMLElement('main', 'img');
+    stardewValley.src = './img/StardewValleyGameProject.png';
+    document.querySelector('main').appendChild(stardewValley);
+    stardewValley.classList.add('stardewValleyPic');
+}
+
+function changeButtonTextBetweenSwedishAndEnglish() {
+    if (document.querySelector('#uk') === true) {
+       let buttonWorkExperience = document.querySelector('#work-experience');
+       buttonWorkExperience.innerHTML = 'Jobberfarenhet';
+       let buttonEducation = document.querySelector('#education');
+       buttonEducation.innerHTML = 'Utbildning';
+    } else if (document.querySelector('#swe') === true) {
+        let buttonWorkExperience = document.querySelector('#work-experience');
+        buttonWorkExperience.innerHTML = 'Work experience';
+        let buttonEducation = document.querySelector('#education');
+        buttonEducation.innerHTML = 'Education';
+    }
 }

@@ -23,7 +23,7 @@ body {
 
 header {
     height: 6rem;
-    color: var(--txtColor);
+
     border: 2px solid black;
     background: rgb(131,58,180);
     background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(6,20,54,1) 50%, rgba(60,59,57,1) 100%);
@@ -33,6 +33,8 @@ main {
     width: 100%;
     background: rgb(131,58,180);
     background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(166,166,166,1) 0%, rgba(47,41,28,1) 100%);
+    display: flex;
+    flex-direction: column;
 }
 
 #work-experience, #education, #portfolio {
@@ -47,7 +49,7 @@ main {
 
 .head-line {
     font-size: 2rem;
-    color: var(--txtColor);
+    color: white;
     text-decoration: none;
     margin: 0;
 }
@@ -105,6 +107,22 @@ a {
     font-size: 1.5rem;
 }
 
+ul {
+    font-weight: 600;
+    font-size: 2rem;
+    align-self: center;
+    width: 170px;
+}
+
+li {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+img, a {
+    margin-left: 1rem;
+}
+
 .imageOfMe {
     height: 15rem;
     width: 12rem;
@@ -130,26 +148,22 @@ a {
     cursor: pointer;
 }
 
-ul {
-    font-weight: 600;
-    font-size: 2rem;
-    align-self: center;
-    width: 170px;
-}
-
-li {
-    font-size: 1rem;
-    font-weight: 400;
-}
-
-img, a {
-    margin-left: 1rem;
-}
-
 .linkedInAccount {
     color: black;
 }
 
 .linkedInAccount:hover {
     color: red;
+}
+
+.spotifyPic, .makeOverPic, .stardewValleyPic, .unexpectedPic, .shoppingWebsitePic {
+    height: 300px;
+    width: 400px;
+    margin-bottom: 1rem;
+    align-self: center;
+}
+
+.gitHub {
+    align-self: center;
+    margin-bottom: 1rem;
 }
