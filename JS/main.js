@@ -1,7 +1,9 @@
 window.addEventListener('load', main);
 
 /**
- * start of the page
+ * Runs when the page starts.
+ * Sets default language on the page
+ * Depending on if what language is on the LS changes
  */
 function main() {
     setDefault()
@@ -16,7 +18,8 @@ function main() {
 }
 
 /**
- * All the addEventListeners on the page
+ * All eventListeners
+ * @param content what content that is going to run english or swedish
  */
 function addEventListeners(content) {
     document.querySelector('button').addEventListener('click', colorTheme);
@@ -31,6 +34,11 @@ function setDefault(){
         localStorage.setItem('swe', 'true')
     }
 }
+
+/**
+ * Changes the text language dependent on what language is saved in LS
+ * @param lang what language that is true
+ */
 function somethingLocalStorageSomething(lang) {
 
     if (lang === 'eng') {
@@ -49,32 +57,34 @@ function somethingLocalStorageSomething(lang) {
 
 
 function colorTheme() {
-    localStorage.setItem('darkMode', 'true')
+    localStorage.setItem('colorChange', 'true')
     let rootOfThePage = document.documentElement;
     rootOfThePage.style.setProperty('--bgColor', 'black');
     rootOfThePage.style.setProperty('--txtColor', 'white');
 }
 
 /**
- * Function that creates an element into an specific div and with a text content
- * @param whatDiv What div to place the element
+ * Function that creates an element and puts in on the right page and with a text content
+ * @param whatPage What div to place the element
  * @param whatElement What element to create
  * @param whatContent What content the element should contain
  * @returns {HTMLElement}
  */
-function createHTMLElement(whatDiv, whatElement, whatContent) {
+function createHTMLElement(whatPage, whatElement, whatContent) {
     let element = document.createElement(whatElement);
     element.innerHTML = whatContent;
-    document.querySelector(whatDiv).append(element)
+    document.querySelector(whatPage).append(element)
     return element;
 }
 
 /**
  * Create element on the start page
+ * @param content what innerText the element should have
  */
 function startPageWithInformation(content) {
 
     createHTMLElement('#information', 'h2', content.myName);
+
     let imageOfMe = createHTMLElement('#information', 'img');
     imageOfMe.src = './img/jag.jpg';
     document.querySelector('#information').appendChild(imageOfMe);
@@ -103,11 +113,12 @@ function startPageWithInformation(content) {
 
 /**
  * Create element on the work experience page
+ * @param content what innerText the element should have
  */
 function enterWorkExperiencePage(content) {
     document.querySelector('main').innerHTML = '';
 
-    createHTMLElement('main', 'h2', content.workExperienceHeadline);
+    createHTMLElement('main', 'h3', content.workExperienceHeadline);
 
     for (let i = 0; i < content.jobContent.length; i++) {
         createHTMLElement('main', 'p', content.jobContent[i]);
@@ -115,12 +126,13 @@ function enterWorkExperiencePage(content) {
 }
 
 /**
- * create element on the education page
+ * Create element on the education page
+ * @param content what innerText the element should have
  */
 function enterEducationPage(content) {
     document.querySelector('main').innerHTML = '';
 
-    createHTMLElement('main', 'h2', content.educationHeadline);
+    createHTMLElement('main', 'h3', content.educationHeadline);
 
     for (let i = 0; i < content.myEducations.length; i++) {
         createHTMLElement('main', 'p', content.myEducations[i]);
@@ -129,10 +141,11 @@ function enterEducationPage(content) {
 
 /**
  * Create element on the portfolio page
+ * @param content what innerText the element should have
  */
 function enterPortfolioPage(content) {
     document.querySelector('main').innerHTML = '';
-    createHTMLElement('main', 'h2', content.portfolioHeadline);
+    createHTMLElement('main', 'h3', content.portfolioHeadline);
 
 
     let linkToGitHub = createHTMLElement('main', 'a', content.portfolio);

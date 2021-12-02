@@ -1,13 +1,7 @@
 @media screen and (min-width: 700px) {
-
     .content {
         display: flex;
         flex-direction: row;
-    }
-
-    .nav {
-        display: flex;
-        flex-direction: column;
     }
 
     #work-experience, #education, #portfolio {
@@ -15,6 +9,23 @@
         display: flex;
         flex-direction: column;
     }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+       font-size: 2rem;
+    }
+
+    p, li {
+        font-size: 1.5rem;
+    }
+
+    main {
+        width: 80%;
+    }
+
 
 
 }

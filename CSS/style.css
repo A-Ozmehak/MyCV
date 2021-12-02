@@ -25,10 +25,17 @@ header {
     height: 6rem;
     color: var(--txtColor);
     border: 2px solid black;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(6,20,54,1) 50%, rgba(60,59,57,1) 100%);
+}
+
+main {
+    width: 100%;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(166,166,166,1) 0%, rgba(47,41,28,1) 100%);
 }
 
 #work-experience, #education, #portfolio {
-    background: black;
     border: 1px black solid;
     border-radius: 1rem;
     margin: 1rem;
@@ -38,30 +45,64 @@ header {
     background: var(--navbarTxt);
 }
 
-main {
-    width: 80%;
-}
-
 .head-line {
     font-size: 2rem;
     color: var(--txtColor);
     text-decoration: none;
+    margin: 0;
 }
 
+.head-line:hover {
+    color: black;
+}
 
-
-
-.themeButton {
-    height: 2rem;
+.colorButton {
+    height: 3rem;
     width: 6rem;
     font-weight: 600;
     font-size: 1rem;
 }
 
-#uk, #sv {
+#uk, #swe {
     height: 2rem;
     width: 3rem;
     margin: 2rem 0 0 0;
+}
+
+.colorButton:hover {
+    cursor: pointer;
+    color: red;
+}
+
+#uk:hover {
+    cursor: pointer;
+}
+
+#swe:hover {
+    cursor: pointer;
+}
+
+a:hover {
+    color: red;
+}
+
+h2 {
+    margin-left: 1rem;
+}
+
+h2, h3, p, a, .imageOfMe {
+    align-self: center;
+    text-align: center;
+}
+
+p {
+    margin: 0 1rem 1rem 1rem;
+}
+
+a {
+    margin-top: 1rem;
+    color: var(--txtColor);
+    font-size: 1.5rem;
 }
 
 .imageOfMe {
@@ -70,36 +111,39 @@ main {
 }
 
 #information {
-    background: #4d5259;
-    display: flex;
-    flex-direction: column;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(166,166,166,1) 0%, rgba(47,41,28,1) 100%);
 }
 
 #work-experience:hover {
     color: red;
+    cursor: pointer;
 }
 
 #education:hover {
     color: red;
+    cursor: pointer;
 }
 
 #portfolio:hover {
     color: red;
+    cursor: pointer;
 }
 
 ul {
     font-weight: 600;
     font-size: 2rem;
+    align-self: center;
+    width: 170px;
 }
 
 li {
     font-size: 1rem;
     font-weight: 400;
-
 }
 
-img, h2, ul, p, a, h3 {
-    margin-left: 2rem;
+img, a {
+    margin-left: 1rem;
 }
 
 .linkedInAccount {
