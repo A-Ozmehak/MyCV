@@ -18,3 +18,5 @@ Språket och färgtemat sparas sedan i localstorage.
 Allt textinnehåll befinner sig i content.js filen för att göra koden mer lättläst.
 
 Hemsidan är responsiv. 
+
+[Github Pages Link](https://a-ozmehak.github.io/MyCV/)
