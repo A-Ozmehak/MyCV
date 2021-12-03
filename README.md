@@ -19,5 +19,4 @@ Allt textinnehåll befinner sig i content.js filen för att göra koden mer lät
 
 Hemsidan är responsiv. 
 
-Länk till GitHub pages
-https://a-ozmehak.github.io/MyCV/
+
