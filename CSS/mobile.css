@@ -11,8 +11,6 @@
 /*reusable classes*/
 .flex { display: flex; }
 .flex-column { flex-direction: column; }
-.align-center { align-content: center; }
-.justify-center {justify-content: center; }
 .justify-around { justify-content: space-around; }
 .self-center { align-self: center; }
 
@@ -34,17 +32,23 @@ main {
     background: var(--mainBg);
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
-#work-experience, #education, #portfolio {
+.content {
+    flex-direction: column;
+}
+
+#workExperience, #education, #portfolio {
     border: 1px black solid;
     border-radius: 1rem;
     margin: 1rem;
-    font-size: 1rem;
+    font-size: 0.9rem;
     text-decoration: none;
     color: var(--navbarColor);
     background: var(--navbarTxt);
 }
+
 
 .head-line {
     font-size: 2rem;
@@ -97,20 +101,23 @@ h2 {
 
 h2, h3, p {
     text-align: center;
+    font-size: 2rem;
 }
 
 p {
     margin: 0 1rem 1rem 1rem;
+    font-size: 1.5rem;
 }
 
 ul {
     font-weight: 600;
     font-size: 2rem;
     align-self: center;
+    width: 250px;
 }
 
 li {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 400;
 }
 
@@ -124,7 +131,7 @@ img, a {
     align-self: center;
 }
 
-#work-experience:hover {
+#workExperience:hover {
     color: red;
     cursor: pointer;
 }
@@ -147,9 +154,9 @@ img, a {
     color: red;
 }
 
-.portfolioImages {
-    height: 300px;
-    width: 400px;
+.images {
+    height: 400px;
+    width: 350px;
     margin-bottom: 1rem;
     align-self: center;
 }

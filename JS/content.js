@@ -1,12 +1,28 @@
+/**
+ * All the text content is saved here and when an element is created it gets its innerHTML from here.
+ * Some elements with a lot of text are in arrays and used in a for loop.
+ * @type {{linkLinkedIn: string, portfolioImages: string[], buttonForPortfolio: string, skillHeader: string,
+ * jobContent: string[], listOfLanguages: string[], aboutMe: string[], workExperienceHeadline: string,
+ * buttonForExperience: string, buttonForEducation: string, portfolio: string, portfolioHeadline: string,
+ * listOfSkills: string[], myEducations: string[], myName: string, aboutHeader: string, langHeader: string,
+ * educationHeadline: string}} All the text content on the page
+ */
+
 const enContent = {
 
     myName: `Anna Özmehak`,
-    aboutMe: [`32 years old from Skåne that now lives in Göteborg with my husband.
-         My interests are: play games, dogs, nature, programming.`,
+    aboutMe: [`I'm an 32 year old woman from Skåne that now lives in Gothenburg with my husband.
+         A former dental assistant who found her new calling in life namely programming.
+         I crave learning new things for my own development. 
+  
+         Some of my interests are: play games, dogs, nature, programming.`,
         `Contact Me`,
-        `Gustaf Dalénsgatan 24`, 'Göteborg', '070-29 23 166', `anna.ozmehak@gmail.com`],
+        `Gustaf Dalénsgatan 24`, 'Gothenburg', '070-29 23 166', `anna.ozmehak@gmail.com`],
 
     linkLinkedIn: `LinkedIn Account`,
+    buttonForExperience: `Experience`,
+    buttonForEducation: `Education`,
+    buttonForPortfolio: `Portfolio`,
 
     workExperienceHeadline: `Workexperience`,
 
@@ -39,17 +55,28 @@ const enContent = {
         `./img/UnexpectedGame.png`, `./img/StardewValleyGameProject.png`]
 }
 
+/**
+ * All the text content is saved here and when an element is created it gets its innerHTML from here.
+ * Some elements with a lot of text are in arrays and used in a for loop.
+ * @type {{linkLinkedIn: string, portfolioImages: string[], buttonForPortfolio: string, skillHeader: string,
+ * jobContent: string[], listOfLanguages: string[], aboutMe: string[], workExperienceHeadline: string,
+ * buttonForExperience: string, buttonForEducation: string, portfolio: string, portfolioHeadline: string,
+ * listOfSkills: string[], myEducations: string[], myName: string, aboutHeader: string, langHeader: string,
+ * educationHeadline: string}} all the text content on the page
+ */
 const sweContent = {
 
     aboutHeader: 'Om Mig',
     skillHeader: 'Egenskaper',
     langHeader: 'Språk',
-    listOfSkills: ['Energetic', 'Driven', 'Motiverad', 'Organiserad', 'Team player', 'HLR - instruktör'],
+    listOfSkills: ['Energisk', 'Driven', 'Motiverad', 'Organiserad', 'Lagspelare', 'HLR - instruktör'],
     listOfLanguages: ['Svenska - Modersmål', 'Engelska - Flytande'],
 
     myName: `Anna Özmehak`,
-    aboutMe: [`32 år gammal från Skåne som nu bor i Göteborg med min man.
-    Mina intressen: spela spel, hundar, natur, programmering.`,
+    aboutMe: [`Jag är en 32 åring kvinna från Skåne, en före detta tandsköterska som funnit ett nytt stort intresse i livet nämligen programmering.
+    Bosatt i Göteborg sedan 5år tillbaks med min man.
+    Jag brinner för att lära mig nytt och håller min personliga utveckling högt.
+    Mina intressen är bland annat: spela datorspel, hundar, natur, programmering.`,
     `Kontakta mig`,
     `Gustaf Dalénsgatan 24`,
     'Göteborg',
@@ -57,6 +84,9 @@ const sweContent = {
     'anna.ozmehak@gmail.com'],
 
     linkLinkedIn: `LinkedIn Konto`,
+    buttonForExperience: `Jobberfarenhet`,
+    buttonForEducation: `Utbildning`,
+    buttonForPortfolio: `Portfolio`,
 
     workExperienceHeadline: `Jobberfarenhet`,
 

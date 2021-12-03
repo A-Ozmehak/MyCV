@@ -2,8 +2,6 @@ window.addEventListener('load', main);
 
 /**
  * Runs when the page starts.
- * Sets default language on the page
- * Depending on what language is on the LS changes
  */
 function main() {
     setDefault()
@@ -16,6 +14,7 @@ function main() {
         addEventListeners(enContent);
     }
     checkColorTheme();
+
 }
 
 /**
@@ -24,7 +23,7 @@ function main() {
  */
 function addEventListeners(content) {
     document.querySelector('.darkButton').addEventListener('click', colorTheme);
-    document.querySelector('#work-experience').addEventListener('click', () => enterWorkExperiencePage(content));
+    document.querySelector('#workExperience').addEventListener('click', () => enterWorkExperiencePage(content));
     document.querySelector('#education').addEventListener('click', () => enterEducationPage(content));
     document.querySelector('#portfolio').addEventListener('click', () => enterPortfolioPage(content));
     document.querySelector('#uk').addEventListener('click', () => changeBetweenLanguagesOnThePage('eng'));
@@ -32,7 +31,7 @@ function addEventListeners(content) {
 }
 
 /**
- * Sets default value of language and color theme on the page
+ * Sets default value of language to swedish and default color theme to light if there aren't any values
  */
 function setDefault() {
     if (localStorage.getItem('swe') === null || localStorage.getItem('eng') === null) {
@@ -44,7 +43,7 @@ function setDefault() {
 }
 
 /**
- * Changes the text language dependent on what language is saved in LS
+ * Changes the value in LS depending on what input it gets
  * @param lang what language that is true
  */
 function changeBetweenLanguagesOnThePage(lang) {
@@ -56,12 +55,14 @@ function changeBetweenLanguagesOnThePage(lang) {
         localStorage.setItem('swe', 'true');
         localStorage.setItem('eng', 'false');
     }
-    document.querySelector('#information').innerHTML = '';
-    main();
+     document.querySelector('#information').innerHTML = '';
+     document.querySelector('nav').innerHTML = '';
+
+     main();
 }
 
 /**
- * Sets the color of the page
+ * If LS has dark or light it changes the theme accordingly
  */
 function checkColorTheme() {
     if (localStorage.getItem('lightTheme') === 'true') {
@@ -77,7 +78,7 @@ function checkColorTheme() {
 }
 
 /**
- * Changes the color theme between dark or light
+ * Changes the color theme between dark or light when the button is clicked
  */
 function colorTheme() {
     if (localStorage.getItem('lightTheme') === 'true') {
@@ -93,7 +94,7 @@ function colorTheme() {
 }
 
 /**
- * Function that creates an element and puts in on the right page and with a text content
+ * Function that creates an element and puts it in the right div and with a text content
  * @param whatPage What div to place the element
  * @param whatElement What element to create
  * @param whatContent What content the element should contain
@@ -107,7 +108,7 @@ function createHTMLElement(whatPage, whatElement, whatContent) {
 }
 
 /**
- * Create element on the start page
+ * Creates element on the start page
  * @param content what innerText the element should have
  */
 function startPageWithInformation(content) {
@@ -138,54 +139,63 @@ function startPageWithInformation(content) {
     for (let i = 0; i < content.listOfLanguages.length; i++) {
         createHTMLElement('#listOfMyLanguages', 'li', content.listOfLanguages[i]);
     }
+
+    let buttonExperience = createHTMLElement('nav', 'button', content.buttonForExperience);
+    buttonExperience.id = 'workExperience';
+    let buttonEducation = createHTMLElement('nav', 'button', content.buttonForEducation);
+    buttonEducation.id = 'education';
+    let buttonPortfolio = createHTMLElement('nav', 'button', content.buttonForPortfolio);
+    buttonPortfolio.id = 'portfolio';
 }
 
+
 /**
- * Create element on the work experience page
+ * Creates element in work experience
  * @param content what innerText the element should have
  */
 function enterWorkExperiencePage(content) {
-    document.querySelector('main').innerHTML = '';
+    document.querySelector('#information').innerHTML = '';
 
-    createHTMLElement('main', 'h3', content.workExperienceHeadline);
+    createHTMLElement('#information', 'h3', content.workExperienceHeadline);
 
     for (let i = 0; i < content.jobContent.length; i++) {
-        createHTMLElement('main', 'p', content.jobContent[i]);
+        createHTMLElement('#information', 'p', content.jobContent[i]);
     }
 }
 
 /**
- * Create element on the education page
+ * Creates element in education
  * @param content what innerText the element should have
  */
 function enterEducationPage(content) {
-    document.querySelector('main').innerHTML = '';
+    document.querySelector('#information').innerHTML = '';
 
-    createHTMLElement('main', 'h3', content.educationHeadline);
+    createHTMLElement('#information', 'h3', content.educationHeadline);
 
     for (let i = 0; i < content.myEducations.length; i++) {
-        createHTMLElement('main', 'p', content.myEducations[i]);
+        createHTMLElement('#information', 'p', content.myEducations[i]);
     }
 }
 
 /**
- * Create element on the portfolio page
+ * Creates element in portfolio
  * @param content what innerText the element should have
  */
 function enterPortfolioPage(content) {
-    document.querySelector('main').innerHTML = '';
-    createHTMLElement('main', 'h3', content.portfolioHeadline);
+    document.querySelector('#information').innerHTML = '';
+    createHTMLElement('#information', 'h3', content.portfolioHeadline);
 
-    let linkToGitHub = createHTMLElement('main', 'a', content.portfolio);
+    let linkToGitHub = createHTMLElement('#information', 'a', content.portfolio);
     linkToGitHub.setAttribute('href', 'https://github.com/A-Ozmehak');
     linkToGitHub.setAttribute('target', '_blank');
     linkToGitHub.classList.add('gitHub');
 
     for (let i = 0; i < content.portfolioImages.length; i++) {
-        let imgElement = createHTMLElement('main', 'img', content.portfolioImages[i]);
-        imgElement.src = content.portfolioImages;
-        document.querySelector('main').appendChild(imgElement);
-        imgElement.classList.add('portfolioImages');
+        let imgElement = createHTMLElement('#information', 'img');
+        imgElement.src = `${content.portfolioImages[i]}`;
+        imgElement.classList.add('images');
+        document.querySelector('#information').appendChild(imgElement);
+
     }
 
 
