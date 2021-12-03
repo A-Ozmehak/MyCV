@@ -9,6 +9,11 @@
  */
 
 const enContent = {
+    aboutHeader: 'About Me',
+    skillHeader: 'Skills',
+    langHeader: 'Languages',
+    listOfSkills: ['Energetic', 'Driven', 'Motivated', 'Organised', 'Team player', 'HLR - instructor'],
+    listOfLanguages: ['Swedish - Mother tongue', 'English - Fluent'],
 
     myName: `Anna Özmehak`,
     aboutMe: [`I'm an 32 year old woman from Skåne that now lives in Gothenburg with my husband.
