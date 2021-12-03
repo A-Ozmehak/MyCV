@@ -3,18 +3,19 @@ window.addEventListener('load', main);
 /**
  * Runs when the page starts.
  * Sets default language on the page
- * Depending on if what language is on the LS changes
+ * Depending on what language is on the LS changes
  */
 function main() {
     setDefault()
     if (localStorage.getItem('swe') === 'true') {
-        startPageWithInformation(sweContent)
-        addEventListeners(sweContent)
+        startPageWithInformation(sweContent);
+        addEventListeners(sweContent);
 
     } else if (localStorage.getItem('eng') === 'true') {
-        startPageWithInformation(enContent)
-        addEventListeners(enContent)
+        startPageWithInformation(enContent);
+        addEventListeners(enContent);
     }
+    checkColorTheme();
 }
 
 /**
@@ -22,48 +23,73 @@ function main() {
  * @param content what content that is going to run english or swedish
  */
 function addEventListeners(content) {
-    document.querySelector('button').addEventListener('click', colorTheme);
+    document.querySelector('.darkButton').addEventListener('click', colorTheme);
     document.querySelector('#work-experience').addEventListener('click', () => enterWorkExperiencePage(content));
     document.querySelector('#education').addEventListener('click', () => enterEducationPage(content));
     document.querySelector('#portfolio').addEventListener('click', () => enterPortfolioPage(content));
-    document.querySelector('#uk').addEventListener('click', () => somethingLocalStorageSomething('eng'),
-        changeButtonTextBetweenSwedishAndEnglish);
-    document.querySelector('#swe').addEventListener('click', () => somethingLocalStorageSomething('swe'),
-        changeButtonTextBetweenSwedishAndEnglish);
+    document.querySelector('#uk').addEventListener('click', () => changeBetweenLanguagesOnThePage('eng'));
+    document.querySelector('#swe').addEventListener('click', () => changeBetweenLanguagesOnThePage('swe'));
 }
 
-function setDefault(){
-    if (localStorage.getItem('swe') === null || localStorage.getItem('eng') === null){
-        localStorage.setItem('swe', 'true')
+/**
+ * Sets default value of language and color theme on the page
+ */
+function setDefault() {
+    if (localStorage.getItem('swe') === null || localStorage.getItem('eng') === null) {
+        localStorage.setItem('swe', 'true');
     }
+    if (localStorage.getItem('lightTheme') === null && localStorage.getItem('darkTheme') === null) {
+         localStorage.setItem('lightTheme', 'true');
+     }
 }
 
 /**
  * Changes the text language dependent on what language is saved in LS
  * @param lang what language that is true
  */
-function somethingLocalStorageSomething(lang) {
-
+function changeBetweenLanguagesOnThePage(lang) {
     if (lang === 'eng') {
-        localStorage.setItem('eng', 'true')
-        localStorage.setItem('swe', 'false')
+        localStorage.setItem('eng', 'true');
+        localStorage.setItem('swe', 'false');
 
-    }
-    else if (lang === 'swe') {
-        localStorage.setItem('swe', 'true')
-        localStorage.setItem('eng', 'false')
-
+    } else if (lang === 'swe') {
+        localStorage.setItem('swe', 'true');
+        localStorage.setItem('eng', 'false');
     }
     document.querySelector('#information').innerHTML = '';
-    main()
+    main();
 }
 
+/**
+ * Sets the color of the page
+ */
+function checkColorTheme() {
+    if (localStorage.getItem('lightTheme') === 'true') {
+        let rootOfThePage = document.documentElement;
+        rootOfThePage.style.setProperty('--bgColor', 'white');
+        rootOfThePage.style.setProperty('--txtColor', 'black');
 
+    }if (localStorage.getItem('darkTheme') === 'true') {
+        let rootOfThePage = document.documentElement;
+        rootOfThePage.style.setProperty('--bgColor', 'black');
+        rootOfThePage.style.setProperty('--txtColor', 'white');
+    }
+}
+
+/**
+ * Changes the color theme between dark or light
+ */
 function colorTheme() {
-    localStorage.setItem('colorChange', 'true')
-    let rootOfThePage = document.documentElement;
-    rootOfThePage.style.setProperty('--bgColor', 'black');
-    rootOfThePage.style.setProperty('--txtColor', 'white');
+    if (localStorage.getItem('lightTheme') === 'true') {
+        localStorage.setItem('lightTheme', 'false');
+        localStorage.setItem('darkTheme', 'true');
+        checkColorTheme();
+
+    } else if (localStorage.getItem('darkTheme') === 'true') {
+        localStorage.setItem('darkTheme', 'false');
+        localStorage.setItem('lightTheme', 'true');
+        checkColorTheme();
+    }
 }
 
 /**
@@ -76,7 +102,7 @@ function colorTheme() {
 function createHTMLElement(whatPage, whatElement, whatContent) {
     let element = document.createElement(whatElement);
     element.innerHTML = whatContent;
-    document.querySelector(whatPage).append(element)
+    document.querySelector(whatPage).append(element);
     return element;
 }
 
@@ -85,7 +111,6 @@ function createHTMLElement(whatPage, whatElement, whatContent) {
  * @param content what innerText the element should have
  */
 function startPageWithInformation(content) {
-
     createHTMLElement('#information', 'h2', content.myName);
 
     let imageOfMe = createHTMLElement('#information', 'img');
@@ -98,9 +123,10 @@ function startPageWithInformation(content) {
     for (let i = 0; i < content.aboutMe.length; i++) {
         createHTMLElement('#information', 'p', content.aboutMe[i]);
     }
-    let linkToMyLinkedAccount = createHTMLElement('#information', 'a', content.linkLinkedIn);
-    linkToMyLinkedAccount.setAttribute('href', 'https://www.linkedin.com/in/anna-%C3%B6zmehak-789423226/');
-    linkToMyLinkedAccount.setAttribute('target', '_blank')
+    let linkToMyLinkedInAccount = createHTMLElement('#information', 'a', content.linkLinkedIn);
+    linkToMyLinkedInAccount.setAttribute('href', 'https://www.linkedin.com/in/anna-%C3%B6zmehak-789423226/');
+    linkToMyLinkedInAccount.setAttribute('target', '_blank');
+    linkToMyLinkedInAccount.classList.add('linkedIn');
 
     let skillsUl = createHTMLElement('#information', 'ul', content.skillHeader);
     skillsUl.id = 'listOfMySkills';
@@ -150,48 +176,18 @@ function enterPortfolioPage(content) {
     document.querySelector('main').innerHTML = '';
     createHTMLElement('main', 'h3', content.portfolioHeadline);
 
-
     let linkToGitHub = createHTMLElement('main', 'a', content.portfolio);
     linkToGitHub.setAttribute('href', 'https://github.com/A-Ozmehak');
     linkToGitHub.setAttribute('target', '_blank');
     linkToGitHub.classList.add('gitHub');
 
-    let shoppingProject = createHTMLElement('main', 'img');
-    shoppingProject.src = './img/shoppingWebsiteProject.png';
-    document.querySelector('main').appendChild(shoppingProject);
-    shoppingProject.classList.add('shoppingWebsitePic');
-
-    let spotify = createHTMLElement('main', 'img');
-    spotify.src = './img/Spotify.png';
-    document.querySelector('main').appendChild(spotify);
-    spotify.classList.add('spotifyPic');
-
-    let redoneExistingWebsite = createHTMLElement('main', 'img');
-    redoneExistingWebsite.src = './img/RedoneAExistingWebsite.png';
-    document.querySelector('main').appendChild(redoneExistingWebsite);
-    redoneExistingWebsite.classList.add('makeOverPic');
-
-    let unexpectedGame = createHTMLElement('main', 'img');
-    unexpectedGame.src = './img/UnexpectedGame.png';
-    document.querySelector('main').appendChild(unexpectedGame);
-    unexpectedGame.classList.add('unexpectedPic');
-
-    let stardewValley = createHTMLElement('main', 'img');
-    stardewValley.src = './img/StardewValleyGameProject.png';
-    document.querySelector('main').appendChild(stardewValley);
-    stardewValley.classList.add('stardewValleyPic');
-}
-
-function changeButtonTextBetweenSwedishAndEnglish() {
-    if (document.querySelector('#uk') === true) {
-       let buttonWorkExperience = document.querySelector('#work-experience');
-       buttonWorkExperience.innerHTML = 'Jobberfarenhet';
-       let buttonEducation = document.querySelector('#education');
-       buttonEducation.innerHTML = 'Utbildning';
-    } else if (document.querySelector('#swe') === true) {
-        let buttonWorkExperience = document.querySelector('#work-experience');
-        buttonWorkExperience.innerHTML = 'Work experience';
-        let buttonEducation = document.querySelector('#education');
-        buttonEducation.innerHTML = 'Education';
+    for (let i = 0; i < content.portfolioImages.length; i++) {
+        let imgElement = createHTMLElement('main', 'img', content.portfolioImages[i]);
+        imgElement.src = content.portfolioImages;
+        document.querySelector('main').appendChild(imgElement);
+        imgElement.classList.add('portfolioImages');
     }
+
+
 }
+

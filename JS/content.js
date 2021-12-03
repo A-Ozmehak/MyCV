@@ -34,7 +34,9 @@ const enContent = {
         `2009-08-01 - 2012-06-01`],
 
     portfolioHeadline: `Portfolio`,
-    portfolio: `My GitHub`
+    portfolio: `My GitHub`,
+    portfolioImages: [`./img/shoppingWebsiteProject.png`, `./img/Spotify.png`, `./img/RedoneAExistingWebsite.png`,
+        `./img/UnexpectedGame.png`, `./img/StardewValleyGameProject.png`]
 }
 
 const sweContent = {
@@ -82,5 +84,7 @@ const sweContent = {
 
     portfolioHeadline: `Portfolio`,
     portfolio: `Mitt GitHub`,
+    portfolioImages: [`./img/shoppingWebsiteProject.png`, `./img/Spotify.png`, `./img/RedoneAExistingWebsite.png`,
+       `./img/UnexpectedGame.png`, `./img/StardewValleyGameProject.png`]
 
 }
