@@ -120,6 +120,6 @@ const sweContent = {
     portfolioHeadline: `Portfolio`,
     portfolio: `Mitt GitHub`,
     portfolioImages: [`./img/shoppingWebsiteProject.png`, `./img/Spotify.png`, `./img/RedoneAExistingWebsite.png`,
-       `./img/UnexpectedGame.png`, `./img/Calender.npm`, `./img/Game.png`]
+       `./img/UnexpectedGame.png`, `./img/Calender.png`, `./img/Game.png`]
 
 }

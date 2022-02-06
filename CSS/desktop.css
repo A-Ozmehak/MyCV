@@ -41,5 +41,9 @@
         align-self: center;
     }
 
+    .images {
+        width: 400px;
+    }
+
 
 }
