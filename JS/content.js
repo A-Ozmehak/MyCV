@@ -119,7 +119,10 @@ const sweContent = {
 
     portfolioHeadline: `Portfolio`,
     portfolio: `Mitt GitHub`,
-    portfolioImages: [`./img/shoppingWebsiteProject.png`, `./img/Spotify.png`, `./img/RedoneAExistingWebsite.png`,
-       `./img/UnexpectedGame.png`, `./img/Calender.png`, `./img/Game.png`, `./img/chocolate.png`]
+    portfolioLink1: `https://chocolatefactory.netlify.app/`,
+    portfolioLink2: `https://shark-movies.vercel.app/`,
+
+    portfolioImages: [`./img/Spotify.png`, `./img/RedoneAExistingWebsite.png`,
+       `./img/UnexpectedGame.png`, `./img/Calender.png`, `./img/chocolateFactory.png`, `./img/sharkMovies.png`]
 
 }

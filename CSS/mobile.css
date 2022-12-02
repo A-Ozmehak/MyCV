@@ -167,3 +167,9 @@ img, a {
     color: var(--txtColor);
     text-align: center;
 }
+
+.deployLink {
+    align-self: center;
+    color: var(--txtColor);
+    margin: 1rem 0 1rem 0;
+}

@@ -38,8 +38,8 @@ function setDefault() {
         localStorage.setItem('swe', 'true');
     }
     if (localStorage.getItem('lightTheme') === null && localStorage.getItem('darkTheme') === null) {
-         localStorage.setItem('lightTheme', 'true');
-     }
+        localStorage.setItem('lightTheme', 'true');
+    }
 }
 
 /**
@@ -55,10 +55,10 @@ function changeBetweenLanguagesOnThePage(lang) {
         localStorage.setItem('swe', 'true');
         localStorage.setItem('eng', 'false');
     }
-     document.querySelector('#information').innerHTML = '';
-     document.querySelector('nav').innerHTML = '';
+    document.querySelector('#information').innerHTML = '';
+    document.querySelector('nav').innerHTML = '';
 
-     main();
+    main();
 }
 
 /**
@@ -70,7 +70,8 @@ function checkColorTheme() {
         rootOfThePage.style.setProperty('--bgColor', 'white');
         rootOfThePage.style.setProperty('--txtColor', 'black');
 
-    }if (localStorage.getItem('darkTheme') === 'true') {
+    }
+    if (localStorage.getItem('darkTheme') === 'true') {
         let rootOfThePage = document.documentElement;
         rootOfThePage.style.setProperty('--bgColor', 'black');
         rootOfThePage.style.setProperty('--txtColor', 'white');
@@ -189,6 +190,14 @@ function enterPortfolioPage(content) {
     linkToGitHub.setAttribute('href', 'https://github.com/A-Ozmehak');
     linkToGitHub.setAttribute('target', '_blank');
     linkToGitHub.classList.add('gitHub');
+
+    let deployLink1 = createHTMLElement('#information', 'a', content.portfolioLink1);
+    deployLink1.setAttribute('href', 'https://chocolatefactory.netlify.app/');
+    deployLink1.classList.add('deployLink')
+
+    let deployLink2 = createHTMLElement('#information', 'a', content.portfolioLink2);
+    deployLink2.setAttribute('href', 'https://shark-movies.vercel.app/');
+    deployLink2.classList.add('deployLink')
 
     for (let i = 0; i < content.portfolioImages.length; i++) {
         let imgElement = createHTMLElement('#information', 'img');
